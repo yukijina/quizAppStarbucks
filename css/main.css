@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(-45deg, rgba(250, 206, 175, 0.85),rgba(244, 92, 6, 0.75)), url('http://www.cafel.net/wp-content/uploads/2017/05/thumbnail_9139.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: 'Karla', sans-serif;
+  font-size: 1.8rem;
+}
+
+h1.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 20%;
+  margin-bottom: 8%;
+}
+
+#enter {
+  font-weight: 700;
+}
