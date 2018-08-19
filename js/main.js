@@ -2,13 +2,13 @@ var questions = [
   {
     question: 'What is the biggest size called?',
     answers: [' trenka', ' trenta', ' train'],
-    images: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/12/15/16/starbucks-cup-sizes.jpg?w968h681',
+    images: 'https://sociorocketnews.files.wordpress.com/2017/05/img_0593.jpg?w=640',
     correct: 'trenta'
   },
   {
    question: 'What is this green stuff called',
    answers: [' matcho', ' matcha', ' maccha'],
-   images: 'https://i0.wp.com/www.society19.com/wp-content/uploads/2017/11/matcha.jpg?resize=564%2C347&ssl=1',
+   images: 'https://i.ytimg.com/vi/tCiprz7EFEw/hqdefault.jpg',
    correct: 'matcha'
  },
  {
@@ -38,7 +38,7 @@ var questions = [
  {
    question:'How many Starbucks stores are in San Francisco as of 2014? Roughly: ',
    answers: [' 50', ' 100', ' 80'],
-   images: 'https://cdn-starbucks.netdna-ssl.com/uploads/images/_framed/bm4mvsqB-3245-2163.jpg',
+   images: 'https://www.buckscards.com/store5/images/P/sanfrancisco_600.jpg',
    correct: '80'
  },
  {
@@ -68,9 +68,9 @@ function createQuestion() {
   for (var i = 0; i < 1; i++) { // i<1 means one question in one page
     var containerDiv = document.createElement('div');
     var questionEl = document.createElement('h2');
+    var imgDiv = document.createElement('div')
     var questionImg = document.createElement('img');
 
-    containerDiv.id = 'containerDiv';
     questionEl.id = 'questions' + [i];
     questionImg.id = 'questions' + [i];
     questionImg.src = questions[i].images;
@@ -79,12 +79,14 @@ function createQuestion() {
     var questionText = document.createTextNode(questions[i].question);
     questionEl.appendChild(questionText);
     containerDiv.appendChild(questionEl);
-    containerDiv.appendChild(questionImg);
+    containerDiv.appendChild(imgDiv);
+    imgDiv.appendChild(questionImg);
     questionForm.appendChild(containerDiv);
 
     //style
-    $('#containerDiv').css({'width': '100%', 'margin': '0 auto', 'text-align': 'center'});
-    $('img').css('width', '40%');
+    $(containerDiv).css({'width': '100%', 'margin': '3% auto', 'text-align': 'center'});
+    $(imgDiv).css({'width': '40%', 'margin' : '0 auto'});
+    $('img').css({'width': '100%', 'border-radius': '8px'});
     $('h2').css({'margin': '5% auto', 'font-size': '2.5rem'});
 
 
@@ -107,8 +109,9 @@ function createQuestion() {
       containerDiv.appendChild(answerDiv);
 
 
-      }
-    }
+    } // the end of for loop j
+    } // the end of for loop i
+
     //create submit button
     var submitBtn = document.createElement('button');
     submitBtn.className = 'btn btn-lg btn-outline-danger';
@@ -127,7 +130,7 @@ function createQuestion() {
     // questionForm.appendChild(submitBtn);
     containerDiv.appendChild(submitBtn);
 
-};
+};  // the end of function createQuestion()
 
 function submitAnswer() {
   var inputEl = document.getElementsByTagName('input');
@@ -143,9 +146,24 @@ function submitAnswer() {
       //when all the questions were answered,
       if(questions.length == 0) {
         $('#questionForm').empty();
-        var lastImg = document.createElement('img');
-        lastImg.src = 'https://www.galveston.com/uploads/images/fireworks.png';
-        questionForm.appendChild(lastImg);
+        // $('body').css({
+        //   'background-image': 'url(https://st2.depositphotos.com/4071863/5889/v/950/depositphotos_58896203-stock-illustration-congratulations-typography-lettering-text-card.jpg)',
+        //   'background-position': 'center',
+        //   'background-repeat': 'no-repeat',
+        //   'background-size': 'cover'
+        // });
+
+        $('body').css({
+          'background-image': 'url(https://s3.envato.com/files/239484194/Shiny%20Gold%20Chains%20%2001_preview1.JPG)',
+          'background-size': 'cover',
+          'background-position': 'center',
+          'background-repeat': 'no-repeat'
+        })
+        $('#questionForm').html('<img src="https://quotespill.com/wp-content/uploads/2017/04/congratulation-sms-for-achievement-min.png" class="animated flip">' ).css('margin-top', '8%')
+        // var lastImg = document.createElement('img');
+        // lastImg.src = 'https://st2.depositphotos.com/4071863/5889/v/950/depositphotos_58896203-stock-illustration-congratulations-typography-lettering-text-card.jpg';
+        //
+        // questionForm.appendChild(lastImg);
         return;
       }
       setTimeout(function() {
@@ -153,42 +171,21 @@ function submitAnswer() {
       }, 500);
       return;
 
-    } else {
-      //when user checked wrong answer,
-      //create text
-      var tryText = document.createElement('p');
-      tryText.textContent = 'Not correct. Choose anoter one!';
-      tryText.style.margin = '2% 0 10% 0';
+    } else if(inputEl[i].checked && inputEl[i].value.trim() !== questions[0].correct.trim()) {
+      //when user checked wrong answer,create alert
+      alert('Not correct. Choose anoter one!');
     }
-  };
-    //add text to div
-    containerDiv.appendChild(tryText);
+  }; //the end of for loop
+
     //remove check mark in input - this has to be outside of loop
     //otherwise even correct answer clicked, text shows up
+    //prop() - get the property value for only first element
     $('input[type="checkbox"]').prop('checked', false);
-    console.log('incorrect answer', inputEl[i]);
+    console.log('incorrect answer');
 
-    for(var i = 0; i < inputEl.length; i++) {
-      if (inputEl[i].checked) {
-        inputEl[i].parentElement.className = 'questionWrap wrong';
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-// questions.forEach(function(question) {
-//   var p = document.createElement('p');
-//   p.textContent = question;
-//   // $('.box').append($(p));
-//
-//   jQuery(p).each(function(i) {
-//     jQuery('.box').append($(this));
-//   })
-// });
+  //   for(var i = 0; i < inputEl.length; i++) {
+  //     if (inputEl[i].checked) {
+  //       inputEl[i].parentElement.className = 'questionWrap wrong';
+  //   }
+  // }
+} //the end of function submit()
