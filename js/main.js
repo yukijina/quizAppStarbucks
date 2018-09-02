@@ -2,49 +2,49 @@ var questions = [
   {
     question: 'What is the biggest size called?',
     answers: [' trenka', ' trenta', ' train'],
-    images: 'https://sociorocketnews.files.wordpress.com/2017/05/img_0593.jpg?w=640',
+    images: 'img/question1.jpg',
     correct: 'trenta'
   },
   {
    question: 'What is this green stuff called',
    answers: [' matcho', ' matcha', ' maccha'],
-   images: 'https://i.ytimg.com/vi/tCiprz7EFEw/hqdefault.jpg',
+   images: 'img/question2.jpg',
    correct: 'matcha'
  },
  {
    question:'What is this rich, craemy coffee is called',
    answers: [' Nitro cold brew', ' Oxygen rich cold brew', ' Guinness'],
-   images: 'https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fcdn-image.foodandwine.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fstarbucks-nitro-cold-brew-ft-blog0717.jpg%3Fitok%3DMOzbvzfd&w=700&q=85',
+   images: 'img/question3.jpeg',
    correct: 'Nitro cold brew'
  },
  {
    question:'Which is the current Starbucks logo?',
    answers: [' 1', ' 2', ' 3', ' 4'],
-   images: 'img/question_logo.jpg',
+   images: 'img/question4.png',
    correct: '4'
  },
  {
    question:'What is the image of Starbucks logo?',
    answers: [' dolphin', ' angel', ' mermaid'],
-   images: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw9_mXMz45SNKnubuvGBZbakBahcrG15ka2nYXZdruHbI_c1k_',
+   images: 'img/question5.png',
    correct: 'mermaid'
  },
  {
    question:'Starbucks has a lot of secret menu, this is called:',
    answers: [' Snickers Frappuccino', ' Oleo Frappuccino', ' Truly cacao Frappuccino'],
-   images: 'https://thumbor.thedailymeal.com/TTbXrBWlcczoxt2ozDQepeG8sm0=/774x516/filters:focal(595x384:596x385)/https://www.thedailymeal.com/sites/default/files/2017/08/25/6_Snickers_Slide_Edit.jpg',
+   images: 'img/question6.jpg',
    correct: 'Snickers Frappuccino'
  },
  {
    question:'How many Starbucks stores are in San Francisco as of 2014? Roughly: ',
-   answers: [' 50', ' 100', ' 80'],
-   images: 'https://www.buckscards.com/store5/images/P/sanfrancisco_600.jpg',
+   answers: [' 50', ' 80', ' 100'],
+   images: 'img/question7.jpg',
    correct: '80'
  },
  {
    question:'What is this cool old-style house?',
    answers: [' just house', ' Starbucks store', ' Starbucks Museum'],
-   images: 'https://fullnoteblog.com/wp-content/uploads/2017/07/Starbucks-Kyoto-Yasaka-04.jpg',
+   images: 'img/question8.jpeg',
    correct: 'Starbucks store'
  }
 ];
@@ -62,7 +62,7 @@ myBtn.onclick = function startGame() {
 function createQuestion() {
   //empty elements in questionForm
   // questionForm.innerHTML = '';
-  $('body').css('background', 'none');
+  $('body').css({'background': 'none', 'backgroundColor': 'rgba(5, 150, 76, 0.1)'});
   $('#questionForm').empty();
 
   for (var i = 0; i < 1; i++) { // i<1 means one question in one page
@@ -85,7 +85,7 @@ function createQuestion() {
 
     //style
     $(containerDiv).css({'width': '100%', 'margin': '3% auto', 'text-align': 'center'});
-    $(imgDiv).css({'width': '40%', 'margin' : '0 auto'});
+    $(imgDiv).css({'width': '350px', 'margin' : '0 auto'});
     $('img').css({'width': '100%', 'border-radius': '8px'});
     $('h2').css({'margin': '5% auto', 'font-size': '2.5rem'});
 
@@ -114,7 +114,7 @@ function createQuestion() {
 
     //create submit button
     var submitBtn = document.createElement('button');
-    submitBtn.className = 'btn btn-lg btn-outline-danger';
+    submitBtn.className = 'btn btn-lg btn-outline-success';
     submitBtn.textContent = 'Submit Answer';
     submitBtn.type = 'button';
     submitBtn.style.marginTop = '3%';
