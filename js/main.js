@@ -159,7 +159,7 @@ function submitAnswer() {
           'background-position': 'center',
           'background-repeat': 'no-repeat'
         })
-        $('#questionForm').html('<img src="https://quotespill.com/wp-content/uploads/2017/04/congratulation-sms-for-achievement-min.png" class="animated flip">' ).css('margin-top', '8%')
+        $('#questionForm').html('<img src="img/text.png" class="animated flip">' ).css('margin-top', '8%')
         // var lastImg = document.createElement('img');
         // lastImg.src = 'https://st2.depositphotos.com/4071863/5889/v/950/depositphotos_58896203-stock-illustration-congratulations-typography-lettering-text-card.jpg';
         //

@@ -1,1 +1,1 @@
-#JavaScript Project for Starbucks Quiz site
+# Vanilla JavaScript Project for Starbucks Quiz site
