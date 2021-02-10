@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(-45deg, rgba(250, 206, 175, 0.85),rgba(244, 92, 6, 0.75)), url('http://www.cafel.net/wp-content/uploads/2017/05/thumbnail_9139.jpg');
+  background: linear-gradient(-45deg, rgba(250, 206, 175, 0.85),rgba(244, 92, 6, 0.75)), url('../img/bg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
